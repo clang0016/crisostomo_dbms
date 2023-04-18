@@ -1,0 +1,72 @@
+DROP DATABASE gym;
+
+CREATE DATABASE gym;
+USE gym;
+
+CREATE TABLE client_member(
+    client_ID int PRIMARY KEY AUTO_INCREMENT,
+    fname varchar(30),
+    lname varchar(30),
+    gender enum ('Female','Male'),
+    age int,
+    contact_add varchar(55),
+    email varchar(55),
+    password varchar(55)
+);
+
+CREATE TABLE membership(
+    mem_ID int PRIMARY KEY AUTO_INCREMENT,
+    client_ID int,
+    status varchar(55),
+    date date,
+    CONSTRAINT membershipFK FOREIGN KEY(client_ID) REFERENCES client_member(client_ID)
+);
+
+CREATE TABLE payment(
+    payment_ID int PRIMARY KEY AUTO_INCREMENT,
+    client_ID int,
+    date date,
+    amount int,
+    CONSTRAINT paymentFK FOREIGN KEY(client_ID) REFERENCES client_member(client_ID)
+);
+
+CREATE TABLE transaction_records(
+    trans_ID int PRIMARY KEY AUTO_INCREMENT,
+    trans_name varchar(55),
+    client_ID int,
+    amount int,
+    date date,
+    CONSTRAINT transaction_recordsFK FOREIGN KEY(client_ID) REFERENCES client_member(client_ID)
+);
+
+CREATE TABLE reports(
+    report_ID int PRIMARY KEY AUTO_INCREMENT,
+    client_ID int,
+    trans_ID int,
+    total_amount int,
+    date date,
+    CONSTRAINT reportsFK FOREIGN KEY(client_ID) REFERENCES client_member(client_ID),
+    FOREIGN KEY(trans_ID) REFERENCES transaction_records(trans_ID)
+);
+
+CREATE TABLE trainor(
+    trainor_ID int PRIMARY KEY AUTO_INCREMENT,
+    name varchar(55),
+    sched_ID int,
+    salary int,
+    email varchar(55),
+    password varchar(55)
+);
+
+CREATE TABLE schedule(
+    sched_ID int PRIMARY KEY AUTO_INCREMENT,
+    client_ID int,
+    trainor_ID int,
+    session varchar(55),
+    activity varchar(55),
+    date date,
+    time_start time,
+    time_end time,
+    CONSTRAINT scheduleFK FOREIGN KEY(client_ID) REFERENCES client_member(client_ID),
+    FOREIGN KEY(trainor_ID) REFERENCES trainor(trainor_ID)
+)
