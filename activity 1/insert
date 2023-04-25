@@ -1,0 +1,49 @@
+
+INSERT INTO client_member (fname, lname, gender, age, contact_add, email, password) VALUES
+('Tao', 'Hu', 'Female', 16, 'Wangsheng Funeral Parlor', 'hutao@directorhu.wangsheng', 'buy1getcoffin'),
+('Xiao', 'Alatus', 'Male', 2000, 'Wangshu Inn', 'xiao@evilconqueror.yaksha', 'disappear666'),
+('Nahida', 'Kusanali', 'Female', 500, 'Sanctuary of Surasthana', 'nahida@lesserlord.archon', 'growx3'),
+('Diluc', 'Ragnvindr', 'Male', 22, 'Dawn Winery', 'diluc@iambatman.abysshunter', 'darknighthero'),
+('Albedo', 'Calx', 'Male', 400, 'Dragonspine', 'abedo@alchemist.calx', 'defnottheevilone');
+
+INSERT INTO membership (client_ID, status, date) VALUES
+(1, 'Active', '2023/07/15'),
+(2, 'Active', '2023/04/17'),
+(3, 'Active', '2023/10/27'),
+(4, 'Active', '2023/04/30'),
+(5, 'Active', '2023/09/13');
+
+INSERT INTO payment (client_ID, date, amount) VALUES
+(1, '2023/07/15', 1800),
+(2, '2023/04/17', 1800),
+(3, '2023/11/27', 1800),
+(4, '2023/04/30', 1800),
+(5, '2023/09/13', 1800);
+
+INSERT INTO transaction_records (trans_name, client_ID, amount, date) VALUES
+('Gym Subscription', 2, 150, '2023/04/17'),
+('Gym Subscription', 4, 150, '2023/04/30'),
+('Gym Subscription', 1, 150, '2023/07/15'),
+('Gym Subscription', 5, 150, '2023/09/13'),
+('Gym Subscription', 3, 150, '2023/10/27');
+
+INSERT INTO trainor (name, sched_ID, salary, email, password) VALUES
+('Qiqi', 1, 1500, 'qiqi@zombii.coconutmilk', 'nohutaono'),
+('Zhongli', 2, 1500, 'zhongli@morax.archon', 'sendhelpimbroke'),
+('Ningguang', 3, 1500, 'ningguang@qixing.jadechamber', 'yourlifeismine'),
+('Ayato', 4, 1500, 'ayato@kamisato.estate', 'givbubbletea'),
+('Kuki', 4, 1500, 'kuki@shinobu.gangg', 'whatdidtheydothistime');
+
+INSERT INTO schedule (client_ID, trainor_ID, session, activity, date, time_start, time_end) VALUES
+(1, 1, 1, 'Treadmill', '2023/07/16', '08:00:00', '08:30:00'),
+(2, 2, 1, 'Pull-Ups', '2023/04/18', '10:00:00', '10:30:00'),
+(3, 3, 1, 'Jumping Jacks', '2023/10/28', '17:00:00', '17:30:00'),
+(4, 4, 1, 'Dumbells', '2023/05/01', '07:00:00', '07:30:00'),
+(5, 5, 1, 'Sit-Ups', '2023/09/13', '08:00:00', '08:30:00');
+
+INSERT INTO reports (client_ID, trans_ID, total_amount, date) VALUES
+(2, 1, 150, '2023/04/17'),
+(4, 2, 150, '2023/04/30'),
+(1, 3, 150, '2023/07/15'),
+(5, 4, 150, '2023/09/13'),
+(3, 5, 150, '2023/10/27');
