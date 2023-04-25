@@ -1,13 +1,11 @@
 SELECT
-    CONCAT(fname, ' ', lname) AS Fullname,
-    age,
+    CONCAT(fname, ' ', lname) AS client_name,
     schedule.session,
     schedule.activity,
     schedule.date,
+    schedule.time_start,
     trainor.name AS instructor
 FROM
     client_member
 INNER JOIN schedule ON client_member.client_ID = schedule.client_ID
-INNER JOIN trainor ON trainor.trainor_ID = schedule.trainor_ID
-WHERE
-    client_member.age < 25;
+INNER JOIN trainor ON trainor.trainor_ID = schedule.sched_ID;
