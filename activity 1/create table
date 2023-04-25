@@ -17,7 +17,7 @@ CREATE TABLE client_member(
 CREATE TABLE membership(
     mem_ID int PRIMARY KEY AUTO_INCREMENT,
     client_ID int,
-    status varchar(55),
+    status enum('Active', 'Inactive'),
     date date,
     CONSTRAINT membershipFK FOREIGN KEY(client_ID) REFERENCES client_member(client_ID)
 );
