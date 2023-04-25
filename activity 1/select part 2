@@ -6,4 +6,5 @@ SELECT
 FROM
     client_member
 INNER JOIN membership ON client_member.client_ID = membership.client_ID
-INNER JOIN reports ON client_member.client_ID = reports.client_ID;
+INNER JOIN reports ON client_member.client_ID = reports.client_ID
+
