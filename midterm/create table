@@ -1,0 +1,26 @@
+DROP DATABASE studentinfo;
+CREATE DATABASE studentinfo;
+
+USE studentinfo;
+
+CREATE TABLE student(
+	StudNo varchar(30) PRIMARY KEY,
+    StudFName varchar(55),
+    StudLName varchar(55),
+    Major enum('ECE', 'COE'),
+    Gender enum('F', 'M'),
+    HomeAddress varchar(55)
+);
+
+CREATE TABLE subject(
+	SubjectCode enum('Chem 123', 'Math 122', 'Math 123') PRIMARY KEY,
+    SubjectDescr enum('Chemistry', 'Trigonometry', 'Algebra')
+);
+
+CREATE TABLE grade(
+	Studno varchar(30),
+    SubjectCode enum('Chem 123', 'Math 122', 'Math 123'),
+    Grade double,
+    CONSTRAINT gradeFK FOREIGN KEY(Studno) REFERENCES student(StudNo),
+	FOREIGN KEY(SubjectCode) REFERENCES subject(SubjectCode)
+);

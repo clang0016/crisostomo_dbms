@@ -1,0 +1,36 @@
+-- Number 1:
+SELECT
+    CONCAT(StudFName, ' ', StudLName) AS name,
+    HomeAddress
+FROM
+    student
+WHERE
+    gender = 'F' AND Major = 'ECE' AND HomeAddress = 'Malolos, Bulacan'
+
+-- Number 2:
+SELECT
+    CONCAT(StudFName, ' ', StudLName) AS Name,
+	Major,
+    subject.SubjectDescr AS 'Subject Name',
+    grade.Grade
+FROM
+	student
+INNER JOIN grade ON student.StudNo = grade.Studno
+INNER JOIN subject ON subject.SubjectCode = grade.SubjectCode
+WHERE
+	subject.SubjectCode = 'Math 122' AND grade.Grade <= 2.0
+
+-- Number 3:
+SELECT
+    CONCAT(StudLName, ', ', StudFName) AS Name,
+    Gender,
+    HomeAddress AS Address,
+    subject.SubjectDescr AS 'Subject Name',
+    grade.Grade
+FROM
+	student
+INNER JOIN grade ON student.StudNo = grade.Studno
+INNER JOIN subject ON subject.SubjectCode = grade.SubjectCode
+WHERE
+	student.Major = 'COE'
+ORDER BY Name
