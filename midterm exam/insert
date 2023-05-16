@@ -1,0 +1,32 @@
+INSERT INTO student VALUES
+('S-101', 'Ana', 'Cruz', 'ECE', 'F', 'Malolos, Bulacan'),
+('S-102', 'Hazel', 'Ponce', 'COE', 'F', 'Plaridel, Bulacan'),
+('S-103', 'Cristov', 'Concio', 'ECE', 'M', 'Malolos, Bulacan'),
+('S-104', 'Aris', 'Clavio', 'COE', 'M', 'Pulilan, Bulacan'),
+('S-105', 'Honey', 'Pelayo', 'COE', 'F', 'Plaridel, Bulacan'),
+('S-106', 'Carrie', 'Abao', 'ECE', 'F', 'Pulilan, Bulacan');
+
+INSERT INTO subject VALUES
+('Chemistry', 'Chem 123'),
+('Trigonometry', 'Math 122'),
+('Algebra', 'Math 123');
+
+INSERT INTO grades VALUES
+('Chemistry', 2.00, 'S-101'),
+('Trigonometry', 1.00, 'S-101'),
+('Algebra', 1.50, 'S-101'),
+('Chemistry', 1.75, 'S-102'),
+('Trigonometry', 1.25, 'S-102'),
+('Algebra', 1.50, 'S-102'),
+('Chemistry', 2.00, 'S-103'),
+('Trigonometry', 1.75, 'S-103'),
+('Algebra', 1.25, 'S-103'),
+('Chemistry', 1.25, 'S-104'),
+('Trigonometry', 2.25, 'S-104'),
+('Algebra', 2.50, 'S-104'),
+('Chemistry', 1.00, 'S-105'),
+('Trigonometry', 1.25, 'S-105'),
+('Algebra', 2.50, 'S-105'),
+('Chemistry', 1.25, 'S-106'),
+('Trigonometry', 1.50, 'S-106'),
+('Algebra', 1.75, 'S-106');

@@ -1,0 +1,28 @@
+DROP DATABASE midterm;
+CREATE DATABASE midterm;
+
+USE midterm;
+
+CREATE TABLE student(
+	StudNo varchar(30) PRIMARY KEY,
+    StudFName varchar(55),
+    StudLName varchar(55),
+    Major enum('ECE', 'COE'),
+    Gender enum('F', 'M'),
+    HomeAddress varchar(55)
+);
+
+CREATE TABLE subject(
+	SubjDesc varchar(55) PRIMARY KEY,
+    SubjCode varchar(55)
+);
+
+CREATE TABLE grades(
+	SubjDesc varchar(55),
+    grade double,
+    StudNo varchar(30),
+    CONSTRAINT gradesFK FOREIGN KEY (StudNo) REFERENCES student (StudNo),
+    FOREIGN KEY (SubjDesc) REFERENCES subject (SubjDesc)
+);
+
+
