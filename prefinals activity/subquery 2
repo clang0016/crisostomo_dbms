@@ -1,0 +1,31 @@
+SELECT
+    StudNo,
+    CONCAT(StudFName, ' ', StudLName) AS "StudName",
+    Major,
+    Gender,
+    (
+    SELECT
+        Grade
+    FROM
+        grade
+    WHERE
+        SubjectCode = "Math 123" AND Studno = student.StudNo
+	) AS "Math 123",
+	(
+    SELECT
+        Grade
+    FROM
+        grade
+    WHERE
+        SubjectCode = "Chem 123" AND Studno = student.StudNo
+	) AS "Chem 123",
+	(
+    SELECT
+        Grade
+    FROM
+        grade
+    WHERE
+        SubjectCode = "Math 122" AND Studno = student.StudNo
+	) AS "Math 122"
+	FROM
+    	student

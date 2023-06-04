@@ -1,0 +1,23 @@
+SELECT
+    Studno AS "Student ID",
+    (
+    SELECT
+        CONCAT(StudFName, ' ', StudLName)
+    FROM
+        student
+    WHERE
+        StudNo = grade.Studno
+    ) AS "Name",
+    Grade
+FROM
+    grade
+WHERE
+    SubjectCode = "Math 123" && 
+    (
+    SELECT
+        Grade
+    FROM
+        grade
+    WHERE
+        Studno = "S-102" AND SubjectCode = "Math 123"
+    ) > Grade;
